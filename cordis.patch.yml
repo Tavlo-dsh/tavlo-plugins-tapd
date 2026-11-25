@@ -1,0 +1,5 @@
+- insert:
+    - id: tavlo-tapd
+      name: '@tavlo-dsh/dsh-plugin-tapd'
+      config:
+        enabled: false

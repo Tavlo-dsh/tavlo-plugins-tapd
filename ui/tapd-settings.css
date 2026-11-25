@@ -1,0 +1,114 @@
+/* Scope the integration console to its own slot; Arc's popup has its own token scope. */
+.tapd-console {
+  --tapd-ink: var(--dsw-alias-label-primary, light-dark(#172c43, #e9f0f9));
+  --tapd-muted: var(--dsw-alias-label-secondary, light-dark(#516581, #b3c2d6));
+  --tapd-surface: var(--dsw-alias-bg-base, light-dark(#fff, #21252b));
+  color-scheme: light dark;
+  --tapd-accent: var(--dsw-alias-brand-primary, light-dark(#165bbc, #8db8ff));
+  --tapd-prime: #165bbc;
+  --tapd-line: color-mix(in srgb, var(--tapd-ink) 15%, transparent);
+  --tapd-soft: color-mix(in srgb, var(--tapd-accent) 5.5%, var(--tapd-surface));
+  --tapd-outline: color-mix(in srgb, var(--tapd-accent) 29%, transparent);
+  --tapd-focus: var(--tapd-accent);
+  container: tapd-settings / inline-size;
+  display: grid;
+  color: var(--tapd-ink);
+  background: var(--tapd-surface);
+  border: 1px solid var(--tapd-line);
+  border-radius: 18px;
+  min-width: 0;
+  isolation: isolate;
+  font-size: 14px;
+  line-height: 1.5;
+}
+body[data-ds-dark-theme] .tapd-console { color-scheme: dark; }
+.tapd-console h2, .tapd-console h3, .tapd-console h4, .tapd-console p { margin: 0; }
+.tapd-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: clamp(18px, 4cqi, 32px);
+  border-radius: 17px 17px 0 0;
+  border-bottom: 1px solid var(--tapd-line);
+  background: var(--tapd-soft);
+  background-image: radial-gradient(color-mix(in srgb, var(--tapd-accent) 21%, transparent) 0.75px, transparent 0.75px);
+  background-size: 12px 12px;
+}
+.tapd-hero-title { display: grid; min-width: 0; gap: 6px; }
+.tapd-console .tapd-hero h2 { font-weight: 700; font-size: clamp(21px, 4.9cqi, 30px); line-height: 1.2; letter-spacing: -.035em; }
+.tapd-hero-title p { color: var(--tapd-muted); max-width: 50ch; }
+.tapd-route { display: flex; align-items: center; gap: 8px; font: 600 11px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .05em; color: var(--tapd-accent); }
+.tapd-route span { padding: 1px 7px; border: 1px solid var(--tapd-outline); border-radius: 5px; background: var(--tapd-surface); }
+.tapd-route svg { width: 24px; height: 13px; }
+.tapd-control { display: grid; align-content: center; gap: 2px; min-width: 165px; padding: 8px 14px; border: 1px solid var(--tapd-line); border-radius: 12px; background: var(--tapd-surface); }
+.tapd-control [role=status] { display: flex; align-items: baseline; gap: 6px; color: var(--tapd-muted); font-size: 12px; }
+.tapd-dot { align-self: center; flex: none; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.tapd-dot[data-ready=true] { background: #228166; }
+.tapd-body { display: grid; gap: 0; border: 0; margin: 0; min-width: 0; padding: 0; }
+.tapd-step { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 12px; padding: 21px clamp(18px, 4cqi, 32px); }
+.tapd-step + .tapd-step { border-top: 1px solid var(--tapd-line); }
+.tapd-step-index { display: grid; place-content: center; inline-size: 30px; block-size: 30px; border-radius: 9px; border: 1px solid var(--tapd-outline); color: var(--tapd-accent); background: var(--tapd-soft); font: 700 12px/1 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.tapd-step-content { min-width: 0; display: grid; gap: 12px; }
+.tapd-step-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; }
+.tapd-console .tapd-step-header h3 { font-size: 16px; line-height: 1.35; font-weight: 680; }
+.tapd-step-header small { color: var(--tapd-muted); }
+.tapd-step-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.tapd-count { color: var(--tapd-muted); font: 600 12px/1 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.tapd-stack { display: grid; gap: 10px; min-width: 0; }
+.tapd-field-row { display: flex; gap: 11px; align-items: start; flex-wrap: wrap; }
+.tapd-connection-scope { display: grid; gap: 10px; max-inline-size: 32rem; }
+.tapd-project { display: grid; min-width: 0; gap: 8px; padding: 10px 12px; border: 1px solid var(--tapd-line); border-radius: 12px; }
+.tapd-project-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; align-items: start; }
+.tapd-project .tapd-field { min-inline-size: 0; }
+.tapd-project .tapd-field :is(input, button) { min-inline-size: 0; max-inline-size: 100%; box-sizing: border-box; }
+.tapd-project .tapd-field-label { font-size: 13px; font-weight: 500; }
+.tapd-picker { position: relative; display: grid; gap: 4px; }
+.tapd-picker-popup { position: absolute; z-index: 2; inset-inline: 0; inset-block-start: calc(100% + 4px); box-sizing: border-box; padding: 5px;
+  border: 1px solid var(--tapd-outline); border-radius: 9px; background: var(--tapd-surface); box-shadow: 0 6px 22px #0002; }
+.tapd-picker-popup ul { list-style: none; max-block-size: 14rem; overflow: auto; overscroll-behavior: contain; margin: 0; padding: 0; }
+.tapd-picker-popup [role=option], .tapd-picker-popup p { padding: 7px 9px; border-radius: 5px; overflow-wrap: anywhere; }
+.tapd-picker-popup [role=option] { cursor: pointer; }
+.tapd-picker-popup [role=option][aria-disabled=true] { opacity: .45; cursor: not-allowed; }
+.tapd-picker-popup [role=option]:not([aria-disabled=true]):hover, .tapd-picker-popup [data-active] { outline: 1px solid var(--tapd-outline); outline-offset: -1px; background: var(--tapd-soft); }
+.tapd-picker-popup [aria-selected=true] { font-weight: 650; }
+.tapd-status-group { display: grid; gap: 6px; min-inline-size: 0; margin: 0; padding: 5px 10px 10px; border: 1px solid var(--tapd-line); border-radius: 8px; }
+.tapd-status-group > button { justify-self: start; }
+.tapd-status-choices { display: grid; gap: 3px; max-block-size: 13rem; overflow: auto; }
+.tapd-status-choices label { display: flex; gap: 7px; align-items: baseline; padding: 2px 1px; overflow-wrap: anywhere; }
+.tapd-project-advisory { font-size: 13px; }
+.tapd-project-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-width: 0; }
+.tapd-project-head h4 { color: var(--tapd-ink); font-size: 14px; overflow-wrap: anywhere; }
+.tapd-project-code { color: var(--tapd-muted); font: 500 11px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.tapd-empty { border: 1px dashed var(--tapd-outline); padding: 13px; border-radius: 10px; color: var(--tapd-muted); font-size: 13px; }
+.tapd-actions { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; padding: 13px clamp(18px, 4cqi, 32px); border-top: 1px solid var(--tapd-line); background: var(--tapd-soft); border-radius: 0 0 17px 17px; }
+.tapd-feedback { display: grid; gap: 5px; flex: 1 1 240px; min-width: 0; color: var(--tapd-muted); font-size: 13px; }
+.tapd-link { color: var(--tapd-accent); text-decoration: underline; text-underline-offset: 3px; }
+.tapd-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 36px; padding: 5px 12px; border: 1px solid var(--tapd-line); border-radius: 8px;
+  color: var(--tapd-ink); background: var(--tapd-surface); font: inherit; font-size: 13px; line-height: 1.45;
+  font-weight: 650; text-align: center; cursor: pointer; overflow-wrap: anywhere;
+}
+.tapd-button:hover:enabled { border-color: var(--tapd-outline); background: var(--tapd-soft); }
+.tapd-button:disabled { cursor: not-allowed; opacity: .64; }
+.tapd-button:focus-visible, .tapd-link:focus-visible, .tapd-console [role=switch]:focus-visible { outline: 2px solid var(--tapd-focus); outline-offset: 2px; }
+.tapd-button[data-tone=primary] { color: #fff; background: var(--tapd-prime); border-color: var(--tapd-prime); }
+.tapd-button[data-tone=primary]:hover:enabled { color: #fff; background: #104e9f; border-color: #104e9f; }
+.tapd-button[data-tone=quiet] { min-height: 32px; border-color: transparent; color: var(--tapd-muted); }
+.tapd-chip-line { display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; }
+.tapd-chip { max-width: 100%; border-radius: 5px; padding: 2px 7px; background: var(--tapd-soft); color: var(--tapd-muted); font-size: 11px; overflow-wrap: anywhere; }
+.tapd-standalone-note { margin: 14px clamp(18px, 4cqi, 32px) !important; }
+.tapd-console input[type=checkbox] { accent-color: var(--tapd-accent); }
+@container tapd-settings (max-width: 480px) {
+  .tapd-step { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .tapd-step-index { inline-size: 25px; block-size: 25px; border-radius: 6px; }
+  .tapd-project-fields { grid-template-columns: minmax(0, 1fr); }
+  .tapd-actions > .tapd-button { width: 100%; }
+}
+@media (forced-colors: active) {
+  .tapd-hero { background-image: none; }
+  .tapd-button[data-tone=primary] { color: ButtonText; background: ButtonFace; border-color: ButtonText; }
+}

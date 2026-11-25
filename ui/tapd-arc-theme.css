@@ -1,0 +1,41 @@
+/* Local Arc tokens, inherited by the controls and the Select's body-level portal. */
+[data-tavlo-tapd-arc-ui] {
+  /* Pair fallback colors explicitly: Canvas may resolve to the document's
+     color scheme even when an individual control uses a different one. */
+  color-scheme: light dark;
+  --foreground: var(--dsw-alias-label-primary, light-dark(#172c43, #e9f0f9));
+  --text-secondary: var(--dsw-alias-label-secondary, light-dark(#516581, #b3c2d6));
+  --text-muted: var(--text-secondary);
+  --border: var(--dsw-alias-border-l3, light-dark(#8591a3, #728398));
+  --border-strong: var(--dsw-alias-border-l2, var(--border));
+  --surface: var(--dsw-alias-bg-base, light-dark(#fff, #21252b));
+  --surface-muted: var(--dsw-alias-bg-layer-2, light-dark(#eef2f7, #323940));
+  --surface-raised: var(--dsw-alias-bg-layer-1, light-dark(#fff, #282e37));
+  --focus-ring: var(--dsw-alias-brand-primary, light-dark(#165bbc, #8db8ff));
+  --danger: var(--dsw-alias-state-error-primary, light-dark(#b42318, #ffb4ab));
+  --radius-control: var(--dsw-radius-md, 8px);
+  --shadow-floating: var(--dsw-shadow-lg, 0 6px 20px rgb(0 0 0 / .2));
+  --control-height-md: 36px;
+  --control-height-lg: 40px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-5: 12px;
+  --space-6: 16px;
+  --space-8: 20px;
+  --space-12: 24px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-field: 13px;
+  --text-base: 14px;
+  --text-lg: 16px;
+  --leading-body: 1.45;
+  --tracking-body: normal;
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-standard: 200ms;
+  --duration-spring: 200ms;
+  --ease-standard: cubic-bezier(.22, 1, .36, 1);
+  --ease-enter: cubic-bezier(.16, 1, .3, 1);
+  --ease-spring: var(--ease-enter);
+}
+body[data-ds-dark-theme] [data-tavlo-tapd-arc-ui] { color-scheme: dark; }

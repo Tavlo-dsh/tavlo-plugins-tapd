@@ -1,0 +1,21 @@
+# Copy the config override into the list in $DSH_HOME/profiles/web/cordis.patch.yml.
+# Replace the sample values before changing enabled to true. Do not put secrets here.
+- id: tavlo-tapd
+  name: '@tavlo-dsh/dsh-plugin-tapd'
+  config:
+    enabled: false
+    auth: bearer
+    tokenRef: TAVLO_TAPD_TOKEN
+    # For auth: basic, use these references instead of tokenRef:
+    # apiUserRef: TAVLO_TAPD_API_USER
+    # apiKeyRef: TAVLO_TAPD_API_KEY
+    owner: 'TAPD 处理人昵称'
+    projects:
+      - workspaceId: '12345678' # TAPD project ID, not the DSH workspace.
+        # targetWorkspaceId: '550e8400-e29b-41d4-a716-446655440000' # Existing DSH workspace UUID; omit for ungrouped.
+        stories: ['planning'] # Example only: use your project's actual status keys.
+        tasks: ['open', 'progressing']
+    # companyId: '12345678' # Optional; used for the UI project picker, not for polling.
+    # lookbackDays: 30 # Optional; only import work items modified in the last 30 days. Omit for all dates.
+    intervalSeconds: 300
+    maxNewPerScope: 25
