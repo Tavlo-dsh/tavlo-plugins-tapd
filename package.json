@@ -1,8 +1,13 @@
 {
   "name": "@tavlo-dsh/dsh-plugin-tapd",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "将 TAPD 需求和任务单向同步到 Tavlo 任务看板，可按项目指定 DSH 工作区",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tavlo-dsh/tavlo-plugins-tapd.git"
+  },
+  "homepage": "https://github.com/Tavlo-dsh/tavlo-plugins-tapd#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

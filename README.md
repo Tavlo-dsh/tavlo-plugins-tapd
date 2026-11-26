@@ -10,7 +10,7 @@
 npm ci
 npm test
 npm pack
-dsh plugin --profile web add ./tavlo-dsh-dsh-plugin-tapd-0.5.1.tgz
+dsh plugin --profile web add ./tavlo-dsh-dsh-plugin-tapd-0.5.2.tgz
 ```
 
 ### 在 DSH 界面配置（推荐）
